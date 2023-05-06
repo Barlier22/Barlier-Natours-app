@@ -14,6 +14,7 @@ const errorController = require('./controllers/errorController');
 const helmet = require('helmet');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const app = express(); // (an app object is return)creation of app object with express
 
@@ -79,7 +80,7 @@ app.use(
     },
   })
 );
-
+app.use(compression());
 //--> development log in
 if (process.env.NODE_ENV === 'development;') {
   app.use(morgan('dev')); // return request data in the console colored.

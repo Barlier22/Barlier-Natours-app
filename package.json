@@ -8,7 +8,7 @@
     "start:prod": " SET NODE_ENV=production & nodemon server.js",
     "debug": "ndb server.js",
     "watch:js": "parcel watch out ./public/js/index.js --out-dir  ./public/js --out-file buble.js",
-    "build:js": "parcel watch out ./public/js/index.js --out-dir  ./public/js --out-file buble.js"
+    "build:js": "parcel build ./public/js/index.js --out-dir  ./public/js --out-file buble.js"
   },
   "author": "Barlier",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "@stripe/stripe-js": "^1.52.1",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
