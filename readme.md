@@ -1,4 +1,4 @@
-# Natours Appliction
+# Natours Application
 
 Technologies used:
 1-> Node.js
