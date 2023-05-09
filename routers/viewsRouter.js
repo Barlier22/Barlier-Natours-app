@@ -14,7 +14,7 @@ router.get(
 router.get('/tour/:slug', auth.isLogedIn, viewsController.getTour);
 router.get('/login', auth.isLogedIn, viewsController.getLoginForm);
 router.get('/me', auth.protect, viewsController.getAccount);
-router.get('/my-tours', auth.protect, viewsController.getMyTours);
+router.get('/my-tours', auth.protect, viewsController.getMyTours); // this handle 'viewsController.getMyTours' ignore once i will deploy it
 router.post('/submit-user-data', auth.protect, viewsController.updsteUserData);
 
 module.exports = router;

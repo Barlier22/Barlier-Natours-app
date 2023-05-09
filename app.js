@@ -9,6 +9,7 @@ const userRouter = require('./routers/usersRouter');
 const reviewRouter = require('./routers/reviewRouter');
 const viewsRouter = require('./routers/viewsRouter');
 const bookingRouter = require('./routers/bookingRouter');
+const bookingController = require('./controllers/bookingController');
 const AppError = require('./utility/appError');
 const errorController = require('./controllers/errorController');
 const helmet = require('helmet');
@@ -96,6 +97,11 @@ const limiter = rateLimit({
   message: `Too many requets from this API , please try again in one hour`,
 });
 app.use('/api', limiter);
+app.use(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckOut
+);
 
 //--> Body Parser reading data in the body into req.body
 app.use(express.json({ limit: '10kb' }));
