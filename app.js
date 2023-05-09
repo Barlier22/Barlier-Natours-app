@@ -15,6 +15,7 @@ const helmet = require('helmet');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const app = express(); // (an app object is return)creation of app object with express
 
@@ -28,7 +29,9 @@ app.set('views', path.join(__dirname, 'views'));
       GLOBAL MIDDLEWARE.
 
 */
-
+// Implementings cors
+app.use(cors());
+app.options('*', cors());
 // server static file.
 app.use(express.static(path.join(__dirname, 'public')));
 
