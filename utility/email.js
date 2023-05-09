@@ -10,15 +10,17 @@ module.exports = class Email {
     this.from = `Barlier  Mumpoyi <${process.env.EMAIL_FROM}>`;
   }
   newTransport() {
-    if (process.env.NODE_ENV.trim() === 'productio') {
+    if (process.env.NODE_ENV.trim() === 'production') {
+      // console.log('production');
       // some logique
-      return nodemailer.createTransport({
-        service: 'SendGrid',
-        auth: {
-          user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD,
-        },
-      });
+      return 1;
+      // return nodemailer.createTransport({
+      //   service: 'SendinBlue',
+      //   auth: {
+      //     user: process.env.SENDINBLUE_USERNAME,
+      //     pass: process.env.SENDINBLUE_PASSWORD,
+      //   },
+      // });
     }
     return nodemailer.createTransport({
       // service: 'Gmail',

@@ -31,7 +31,11 @@ if (form) {
 }
 /*--------------------------------------
 ------------------------- */
-if (logout) logout.addEventListener('click', logOutUser);
+if (logout)
+  logout.addEventListener('click', function (e) {
+    if (!e.target.includes('nav__el--logout')) return;
+    logOutUser();
+  });
 /*--------------------------------------
 
 ------------------------- */
@@ -42,7 +46,7 @@ if (userData)
     form.append('name', document.getElementById('name').value);
     form.append('email', document.getElementById('email').value);
     form.append('photo', document.getElementById('photo').files[0]);
-    console.log(form);
+    // console.log(form);
     // const name = document.getElementById('name').value;
     // const email = document.getElementById('email').value;
     updatedUserData(form, 'data');
